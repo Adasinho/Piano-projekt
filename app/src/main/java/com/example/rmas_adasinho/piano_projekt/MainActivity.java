@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         Point size = new Point();
         display.getSize(size);
 
+        context = getApplicationContext();
+
         myDb = new DatabaseHelper(context);
 
         GameSetting.height = size.y;
@@ -43,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
         GameSetting.TRACKS.add(new TrackInfo("Sorcerer","dukas_sa",64));
         GameSetting.TRACKS.add(new TrackInfo("Spring","vivaldi_s",90));
         GameSetting.TRACKS.add(new TrackInfo("Jingle Bells","jb",101));
-
-        context = getApplicationContext();
 
         setContentView(new GamePanel(context));
     }
