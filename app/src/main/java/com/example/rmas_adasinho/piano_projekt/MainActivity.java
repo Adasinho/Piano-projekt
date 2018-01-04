@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    DatabaseHelper myDb;
+
     private static Context context;
 
     @Override
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
+
+        myDb = new DatabaseHelper(context);
 
         GameSetting.height = size.y;
         GameSetting.width = size.x;
