@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    DatabaseHelper myDb;
+
 
     private static Context context;
 
@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
         display.getSize(size);
 
         context = getApplicationContext();
-
-        myDb = new DatabaseHelper(context);
 
         GameSetting.height = size.y;
         GameSetting.width = size.x;

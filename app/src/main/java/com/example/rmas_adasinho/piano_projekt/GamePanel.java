@@ -19,6 +19,9 @@ import java.util.ArrayList;
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
 
+    /**
+     * Odpowiada za przełączanie się pomiędzy scenami
+     */
     private SceneManager manager;
 
     public GamePanel(Context context) {

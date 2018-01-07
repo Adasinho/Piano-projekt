@@ -10,8 +10,14 @@ import java.util.ArrayList;
  * Created by RMAS-Adasinho on 2018-01-01.
  */
 
+/**
+ * Scena występująca po pomyślnym przejściu danego etapu
+ */
 public class QuizScene implements Scene {
 
+    /**
+     * Przechowuje odpowiedzi dotyczące nazwy utworu
+     */
     private ArrayList<CustomButton> quizAnswers;
 
     public QuizScene() {

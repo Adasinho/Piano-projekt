@@ -11,23 +11,49 @@ import android.view.MotionEvent;
  * Created by RMAS-Adasinho on 2018-01-01.
  */
 
+/**
+ * Klasa opisująca przycisk
+ */
 public class CustomButton implements SceneComponent {
 
     private String text;
     private Rect rect;
-    private static int FONT_SIZE;
+    private int fontSize;
     private int padding = 10;
     private Point point;
     private boolean transparent;
 
+
+    /**
+     * @param text tekst jaki będzie wyświetlany na przycisku
+     * @param point miejsce na ekranie gdzie zostanie on wyświetlony
+     * @param transparent czy ma być bez tła
+     */
     public CustomButton(String text, Point point, boolean transparent) {
         this.text = text;
-        FONT_SIZE = GameSetting.width/13;
-        int textLength = text.length() * FONT_SIZE;
+        fontSize = GameSetting.width/13;
+        int textLength = text.length() * fontSize;
         this.point = point;
         this.transparent = transparent;
 
-        rect = new Rect(point.x - textLength/2, point.y - FONT_SIZE, point.x + textLength/2, point.y + FONT_SIZE);
+        rect = new Rect(point.x - textLength/2, point.y - fontSize, point.x + textLength/2, point.y + fontSize);
+    }
+
+    /**
+     *
+     * @param text tekst jaki będzie wyświetlany na przycisku
+     * @param point miejsce na ekranie gdzie zostanie on wyświetlony
+     * @param transparent czy ma być bez tła
+     * @param fontSize wielkość czcionki
+     */
+    public CustomButton(String text, Point point, boolean transparent, int fontSize) {
+        this.text = text;
+        this.fontSize = fontSize;
+        int textLength = text.length() * fontSize;
+        this.point = point;
+        this.transparent = transparent;
+
+        rect = new Rect(point.x - textLength/2, point.y - fontSize, point.x + textLength/2, point.y + fontSize);
     }
 
     @Override
@@ -41,10 +67,10 @@ public class CustomButton implements SceneComponent {
         }
 
         paint.setStrokeWidth(0);
-        paint.setTextSize(FONT_SIZE);
+        paint.setTextSize(fontSize);
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setColor(Color.WHITE);
-        canvas.drawText(text,point.x,point.y + FONT_SIZE/3,paint);
+        canvas.drawText(text,point.x,point.y + fontSize/3,paint);
     }
 
     @Override

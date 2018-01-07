@@ -9,6 +9,9 @@ import java.util.EventListener;
  * Created by RMAS-Adasinho on 2018-01-01.
  */
 
+/**
+ * Opisuję element sceny
+ */
 public interface SceneComponent {
     public boolean reciveTouch(MotionEvent event);
     public void draw(Canvas canvas);

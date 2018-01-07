@@ -13,10 +13,16 @@ import java.util.ArrayList;
  * Created by RMAS-Adasinho on 2017-12-31.
  */
 
+/**
+ * Scena z rozgrywką
+ */
 public class GameplayScene implements Scene {
 
+    /**
+     * Przechowuje klawisze spadające od góry ekranu
+     */
     private ArrayList<Tile> tile = new ArrayList<>(20);
-    private boolean done = false;
+    //private boolean done = false;
 
     public GameplayScene() {
         GameSetting.audioPlayer = new AudioPlayer(MainActivity.getAppContext());
@@ -24,6 +30,9 @@ public class GameplayScene implements Scene {
     }
 
 
+    /**
+     * Wczytuje rozgrywkę od nowa
+     */
     public void restart() {
         for(Tile t : tile)
             tile.remove(t);

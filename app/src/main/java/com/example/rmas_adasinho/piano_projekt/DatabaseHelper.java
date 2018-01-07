@@ -10,6 +10,9 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by RMAS-Adasinho on 2018-01-04.
  */
 
+/**
+ * Clasa odpowiadająca za obsługę bazy SQLite
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "score.db";
     public static final String TABLE_NAME = "score_table";
@@ -46,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COL_2 + " DESC", null);
         return res;
     }
 

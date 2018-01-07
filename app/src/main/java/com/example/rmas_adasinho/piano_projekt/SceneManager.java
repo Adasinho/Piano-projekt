@@ -9,8 +9,19 @@ import java.util.ArrayList;
  * Created by RMAS-Adasinho on 2017-12-31.
  */
 
+/**
+ * Zarządza scenami w grzę
+ */
 public class SceneManager {
+
+    /**
+     * Przechowuje wszystkie sceny
+     */
     private ArrayList<Scene> scenes = new ArrayList<>();
+
+    /**
+     * Przechowuje aktywną scene
+     */
     public static int ACTIVE_SCENE;
 
     public SceneManager() {

@@ -13,12 +13,31 @@ import java.util.Random;
  * Created by RMAS-Adasinho on 2017-10-21.
  */
 
+/**
+ * Pojedyńczy klawisz
+ */
 public class Tile implements GameObject{
 
+    /**
+     * Określa czy jest to klawisz czarny (ten który możemy naciskać)
+     */
     private boolean blackTile;
+
     private Rect rectangle;
+
+    /**
+     * Punkt w jakim znajduje się klawisz
+     */
     private Point point;
+
+    /**
+     * Kolor klawisza
+     */
     private int color;
+
+    /**
+     * Sprawia że klawisz staje się nieaktywny
+     */
     private boolean disable;
 
     public Tile() {
@@ -35,6 +54,10 @@ public class Tile implements GameObject{
         this.disable = false;
     }
 
+    /**
+     * Sprawdza jaki klawisz został naciśniety
+     * @param point
+     */
     public void trigger(Point point) {
         if((!disable) && (!GameSetting.endGame)) {
             if (onColliderEnter(point)) {
@@ -52,20 +75,36 @@ public class Tile implements GameObject{
         }
     }
 
+    /**
+     * Sprawdza czy jakiś czarny klawisz został pominięty
+     * @return czarny = true, inny = false
+     */
     public boolean missing() {
         if((disable == false) && (blackTile == true)) return true;
             else return false;
     }
 
+    /**
+     * Sprawdza czy klawisz został naciśniety
+     * @param point
+     * @return
+     */
     private boolean onColliderEnter(Point point) {
         if((rectangle.left < point.x) && (rectangle.right > point.x) && (rectangle.top < point.y) && (rectangle.bottom > point.y)) return true;
         else return false;
     }
 
+    /**
+     * Odpowiada za poruszanie się (spadanie) klawisza
+     */
     void move() {
         point.set(point.x, point.y + (int)(10 * GameSetting.speed));
     }
 
+    /**
+     * Generuje nowe klawisze na scenie
+     * @param tiles
+     */
     public static void spawn(ArrayList<Tile> tiles) {
         if(GameSetting.count != 20) {
             Random r = new Random();

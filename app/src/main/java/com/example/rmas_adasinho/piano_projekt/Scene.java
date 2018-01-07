@@ -7,6 +7,9 @@ import android.view.MotionEvent;
  * Created by RMAS-Adasinho on 2017-12-31.
  */
 
+/**
+ * Opisuję scenę
+ */
 public interface Scene {
     public void update();
     public void draw(Canvas canvas);

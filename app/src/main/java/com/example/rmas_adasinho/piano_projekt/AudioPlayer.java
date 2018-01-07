@@ -9,10 +9,21 @@ import java.util.Random;
  * Created by RMAS-Adasinho on 2017-12-29.
  */
 
+/**
+ * Klasa odpowiadająca za obsługę dźwięku w aplikacji
+ */
 public class AudioPlayer {
 
     private String name;
+
+    /**
+     * Ilośc nut
+     */
     private int frames;
+
+    /**
+     *  Przechowuje aktualną nutę
+     */
     private int actualFrame;
 
     private MediaPlayer mp;
@@ -35,6 +46,9 @@ public class AudioPlayer {
         mp = MediaPlayer.create(context, GameSetting.getResId(name+"_"+actualFrame, R.raw.class));
     }
 
+    /**
+     * Wczytuje oraz odtwarza kolejną nutę utworu
+     */
     public void playFrame() {
         if(actualFrame <= frames) {
             //mp.stop();
